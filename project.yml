@@ -23,7 +23,7 @@ targets:
       - path: MenuBarStats/Support
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.startbar.MenuBarStats
+        PRODUCT_BUNDLE_IDENTIFIER: com.statbar.MenuBarStats
         PRODUCT_NAME: MenuBarStats
         GENERATE_INFOPLIST_FILE: NO
         INFOPLIST_FILE: MenuBarStats/Resources/Info.plist
@@ -37,12 +37,12 @@ targets:
         shell: /bin/bash
         script: |
           set -euo pipefail
-          swiftc -O -target arm64-apple-macos13.0 -sdk "$(xcrun --show-sdk-path)" -o "$BUILT_PRODUCTS_DIR/com.startbar.MenuBarStats.helper" "$SRCROOT/MenuBarStats/Helper/HelperDaemon.swift" "$SRCROOT/MenuBarStats/Support/HelperProtocol.swift"
+          swiftc -O -target arm64-apple-macos13.0 -sdk "$(xcrun --show-sdk-path)" -o "$BUILT_PRODUCTS_DIR/com.statbar.MenuBarStats.helper" "$SRCROOT/MenuBarStats/Helper/HelperDaemon.swift" "$SRCROOT/MenuBarStats/Support/HelperProtocol.swift"
         inputFiles:
           - $(SRCROOT)/MenuBarStats/Helper/HelperDaemon.swift
           - $(SRCROOT)/MenuBarStats/Support/HelperProtocol.swift
         outputFiles:
-          - $(BUILT_PRODUCTS_DIR)/com.startbar.MenuBarStats.helper
+          - $(BUILT_PRODUCTS_DIR)/com.statbar.MenuBarStats.helper
     dependencies:
       - package: MenuBarStatsPackage
         product: MenuBarStatsFeature
@@ -56,7 +56,7 @@ targets:
       - target: MenuBarStats
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.startbar.MenuBarStatsTests
+        PRODUCT_BUNDLE_IDENTIFIER: com.statbar.MenuBarStatsTests
         PRODUCT_NAME: MenuBarStatsTests
         GENERATE_INFOPLIST_FILE: YES
         TEST_HOST: "$(BUILT_PRODUCTS_DIR)/MenuBarStats.app/Contents/MacOS/MenuBarStats"

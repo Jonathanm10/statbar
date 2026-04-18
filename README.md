@@ -14,8 +14,8 @@ Built in Swift / AppKit + SwiftUI. Sandboxed, code-sign-free for local builds, a
 Clone the repo and open the Xcode project:
 
 ```bash
-git clone https://github.com/<your-org>/startbar.git
-cd startbar
+git clone https://github.com/<your-org>/statbar.git
+cd statbar
 open MenuBarStats.xcodeproj
 ```
 

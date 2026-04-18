@@ -52,7 +52,7 @@ final class TopProcessSampler {
         units &* UInt64(machTimebase.numer) / UInt64(machTimebase.denom)
     }
 
-    private let queue = DispatchQueue(label: "com.startbar.MenuBarStats.helper.sampler")
+    private let queue = DispatchQueue(label: "com.statbar.MenuBarStats.helper.sampler")
     private var previous: [pid_t: Sample] = [:]
 
     func sampleAndComputeTop(limit: Int) -> TopProcessesPayload {

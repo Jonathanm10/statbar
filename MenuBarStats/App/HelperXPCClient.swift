@@ -1,7 +1,7 @@
 import Foundation
 import MenuBarStatsFeature
 
-/// Thin XPC client that talks to the root `com.startbar.MenuBarStats.helper` daemon.
+/// Thin XPC client that talks to the root `com.statbar.MenuBarStats.helper` daemon.
 ///
 /// Connects lazily on first use and keeps the connection alive for the app's lifetime. Every
 /// request runs on a background queue with a short semaphore timeout so a missing or

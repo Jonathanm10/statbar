@@ -1,7 +1,7 @@
 import Foundation
 
 public enum HelperService {
-    public static let machServiceName = "com.startbar.MenuBarStats.helper"
+    public static let machServiceName = "com.statbar.MenuBarStats.helper"
 }
 
 @objc public protocol ProcessInfoHelperProtocol {

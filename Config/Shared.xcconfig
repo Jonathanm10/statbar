@@ -8,7 +8,7 @@
 // ==========================================
 PRODUCT_NAME = MenuBarStats
 PRODUCT_DISPLAY_NAME = Menu Bar Stats
-PRODUCT_BUNDLE_IDENTIFIER = com.jonathan.startbar.MenuBarStats
+PRODUCT_BUNDLE_IDENTIFIER = com.jonathan.statbar.MenuBarStats
 MARKETING_VERSION = 1.0
 CURRENT_PROJECT_VERSION = 1
 

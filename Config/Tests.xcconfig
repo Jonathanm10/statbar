@@ -7,7 +7,7 @@
 // ==========================================
 // Test Target Settings (Customizable by scaffold tool)
 // ==========================================
-PRODUCT_BUNDLE_IDENTIFIER = com.jonathan.startbar.MenuBarStats
+PRODUCT_BUNDLE_IDENTIFIER = com.jonathan.statbar.MenuBarStats
 TEST_TARGET_NAME = MenuBarStats
 
 // Fix duplicate module name issue

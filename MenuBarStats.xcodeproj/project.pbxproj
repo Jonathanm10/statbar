@@ -264,11 +264,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/com.startbar.MenuBarStats.helper",
+				"$(BUILT_PRODUCTS_DIR)/com.statbar.MenuBarStats.helper",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "set -euo pipefail\nswiftc -O -target arm64-apple-macos13.0 -sdk \"$(xcrun --show-sdk-path)\" -o \"$BUILT_PRODUCTS_DIR/com.startbar.MenuBarStats.helper\" \"$SRCROOT/MenuBarStats/Helper/HelperDaemon.swift\" \"$SRCROOT/MenuBarStats/Support/HelperProtocol.swift\"\n";
+			shellScript = "set -euo pipefail\nswiftc -O -target arm64-apple-macos13.0 -sdk \"$(xcrun --show-sdk-path)\" -o \"$BUILT_PRODUCTS_DIR/com.statbar.MenuBarStats.helper\" \"$SRCROOT/MenuBarStats/Helper/HelperDaemon.swift\" \"$SRCROOT/MenuBarStats/Support/HelperProtocol.swift\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -330,7 +330,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.startbar.MenuBarStatsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.statbar.MenuBarStatsTests;
 				PRODUCT_NAME = MenuBarStatsTests;
 				SDKROOT = macosx;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MenuBarStats.app/Contents/MacOS/MenuBarStats";
@@ -349,7 +349,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.startbar.MenuBarStatsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.statbar.MenuBarStatsTests;
 				PRODUCT_NAME = MenuBarStatsTests;
 				SDKROOT = macosx;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MenuBarStats.app/Contents/MacOS/MenuBarStats";
