@@ -1,0 +1,74 @@
+name: MenuBarStats
+options:
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: 5.10
+    MACOSX_DEPLOYMENT_TARGET: 13.0
+    CODE_SIGNING_ALLOWED: NO
+    CODE_SIGNING_REQUIRED: NO
+    DEVELOPMENT_TEAM: ""
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+packages:
+  MenuBarStatsPackage:
+    path: MenuBarStatsPackage
+targets:
+  MenuBarStats:
+    type: application
+    platform: macOS
+    deploymentTarget: '13.0'
+    sources:
+      - path: MenuBarStats/App
+      - path: MenuBarStats/Assets.xcassets
+      - path: MenuBarStats/Support
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.startbar.MenuBarStats
+        PRODUCT_NAME: MenuBarStats
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: MenuBarStats/Resources/Info.plist
+        CURRENT_PROJECT_VERSION: 1
+        MARKETING_VERSION: 1.0
+        ASSETCATALOG_COMPILER_APPICON_NAME: ""
+        INFOPLIST_KEY_NSHumanReadableCopyright: ""
+        ENABLE_HARDENED_RUNTIME: NO
+    postBuildScripts:
+      - name: Build Helper Daemon
+        shell: /bin/bash
+        script: |
+          set -euo pipefail
+          swiftc -O -target arm64-apple-macos13.0 -sdk "$(xcrun --show-sdk-path)" -o "$BUILT_PRODUCTS_DIR/com.startbar.MenuBarStats.helper" "$SRCROOT/MenuBarStats/Helper/HelperDaemon.swift" "$SRCROOT/MenuBarStats/Support/HelperProtocol.swift"
+        inputFiles:
+          - $(SRCROOT)/MenuBarStats/Helper/HelperDaemon.swift
+          - $(SRCROOT)/MenuBarStats/Support/HelperProtocol.swift
+        outputFiles:
+          - $(BUILT_PRODUCTS_DIR)/com.startbar.MenuBarStats.helper
+    dependencies:
+      - package: MenuBarStatsPackage
+        product: MenuBarStatsFeature
+  MenuBarStatsTests:
+    type: bundle.unit-test
+    platform: macOS
+    deploymentTarget: '13.0'
+    sources:
+      - path: MenuBarStatsTests
+    dependencies:
+      - target: MenuBarStats
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.startbar.MenuBarStatsTests
+        PRODUCT_NAME: MenuBarStatsTests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/MenuBarStats.app/Contents/MacOS/MenuBarStats"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+schemes:
+  MenuBarStats:
+    build:
+      targets:
+        MenuBarStats: all
+        MenuBarStatsTests:
+          - test
+    test:
+      gatherCoverageData: true
+      targets:
+        - name: MenuBarStatsTests
